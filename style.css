@@ -23,16 +23,19 @@ img,svg{max-width:100%}
 /* header */
 .top{padding-block:20px}
 .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-family:var(--f-display);font-weight:800;font-stretch:110%;font-size:22px;letter-spacing:-.01em}
+.logo{flex-shrink:0;display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-family:var(--f-display);font-weight:800;font-stretch:110%;font-size:22px;letter-spacing:-.01em}
 .logo img{width:34px;height:34px;border-radius:9px}
 .logo .wm span{color:var(--accent)}
 .top nav{display:flex;gap:20px;font-size:15px}
 .top nav a{color:var(--muted);text-decoration:none}
 .top nav a:hover{color:var(--ink)}
+@media (max-width:560px){.top nav{gap:14px;font-size:14px}.top nav a[href$="#story"]{display:none}}
 
 /* hero: lifestyle photo, copy sits on the empty wall to the left */
 .hero{padding:0;position:relative}
-.hero-photo img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:80% center}
+/* phones and narrow windows: the photo on top, cropped closer to him, then the words */
+.hero-photo img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:74% center}
+@media (min-width:600px) and (max-width:879px){.hero-photo img{aspect-ratio:16/9;object-position:right center}}
 .hero-copy{padding-block:32px 8px}
 @media (min-width:880px){
   .hero{min-height:clamp(560px,48vw,720px);display:flex;align-items:center;overflow:hidden}
