@@ -1,17 +1,17 @@
-/* Swipefold site — a contact-sheet feel: photos on white slides, cut lines in pink, plum-to-night colours from the app icon's hills. */
+/* Swipefold site — a contact-sheet feel: photos on white slides, cut lines in pink, magenta-night colours from the app icon. */
 :root{
   --bg:#f5f1f4; --paper:#ffffff; --ink:#1a141b; --muted:#685c69; --line:#e2d9df;
-  --accent:#8e5572; --accent-ink:#ffffff; --accent-soft:#f3e5ee; --cut:#ff3d71;
+  --accent:#b5106a; --accent-ink:#ffffff; --accent-soft:#fbe3ef; --cut:#ff3d71;
   --f-display:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
   --f-body:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
   --f-mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,monospace;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#141016; --paper:#1e1820; --ink:#f1ebf0; --muted:#a898a7; --line:#30272f;
-  --accent:#d39bbb; --accent-ink:#1f1220; --accent-soft:#3d2738; --cut:#ff5c88; color-scheme:dark}}
+  --accent:#f06aa8; --accent-ink:#1f0a17; --accent-soft:#3f1530; --cut:#ff5c88; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#141016; --paper:#1e1820; --ink:#f1ebf0; --muted:#a898a7; --line:#30272f;
-  --accent:#d39bbb; --accent-ink:#1f1220; --accent-soft:#3d2738; --cut:#ff5c88; color-scheme:dark}
+  --accent:#f06aa8; --accent-ink:#1f0a17; --accent-soft:#3f1530; --cut:#ff5c88; color-scheme:dark}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.55}
@@ -45,7 +45,7 @@ img,svg{max-width:100%}
   .hero .wrap{position:relative;width:100%}
   .hero-copy{max-width:490px;padding-block:56px}
   /* fixed colours over the photo, whatever the site theme */
-  .hero-copy{--ink:#1a141b;--muted:#3f3540;--paper:#ffffff;--accent:#8e5572;color:var(--ink)}
+  .hero-copy{--ink:#1a141b;--muted:#3f3540;--paper:#ffffff;--accent:#b5106a;color:var(--ink)}
   .hero-copy .lede{font-size:18px}
 }
 .demo-band .wrap{display:grid;gap:32px;align-items:center}
@@ -65,7 +65,7 @@ h1 em{font-style:normal;color:var(--accent)}
 .phone{width:min(300px,78vw);border-radius:36px;background:#0b0c10;padding:12px;box-shadow:0 30px 60px -30px rgba(46,34,64,.55)}
 .screen{border-radius:26px;overflow:hidden;background:#fff}
 .post-head{display:flex;align-items:center;gap:8px;padding:10px 12px;font-size:12px;font-weight:600;color:#14161b;background:#fff}
-.post-head i{width:22px;height:22px;border-radius:50%;background:linear-gradient(160deg,#8e5572,#2e2240)}
+.post-head i{width:22px;height:22px;border-radius:50%;background:linear-gradient(160deg,#d81877 0%,#8c0f6a 50%,#3a0a5c 100%)}
 .viewport{aspect-ratio:4/5;overflow:hidden;position:relative;background:#fff}
 .strip{display:flex;height:100%;width:500%;animation:swipe 14s infinite}
 .strip svg{width:100%;height:100%;display:block}
@@ -79,11 +79,11 @@ h1 em{font-style:normal;color:var(--accent)}
 .dots b:nth-child(3){animation:dot 14s infinite -8.4s}
 .dots b:nth-child(4){animation:dot 14s infinite -5.6s}
 .dots b:nth-child(5){animation:dot 14s infinite -2.8s}
-@keyframes dot{0%,19%{background:#8e5572}20%,100%{background:#cfd3db}}
+@keyframes dot{0%,19%{background:#b5106a}20%,100%{background:#cfd3db}}
 .sheet{width:100%;max-width:460px}
 .sheet figcaption{font-family:var(--f-mono);font-size:12px;color:var(--muted);text-align:center;margin-top:8px}
 .sheet .frame{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:8px}
-@media (prefers-reduced-motion: reduce){.strip,.dots b{animation:none!important}.dots b:first-child{background:#8e5572}}
+@media (prefers-reduced-motion: reduce){.strip,.dots b{animation:none!important}.dots b:first-child{background:#b5106a}}
 
 /* sections */
 section{padding-block:56px}
@@ -105,7 +105,7 @@ h2{font-family:var(--f-display);font-weight:800;font-stretch:108%;font-size:clam
 .detail h3{margin:0 0 4px;font-size:17px}
 .detail p{margin:0;color:var(--muted);font-size:15.5px}
 
-.privacy-band{background:linear-gradient(160deg,#8e5572,#2e2240);color:#ffffff}
+.privacy-band{background:linear-gradient(160deg,#d81877 0%,#8c0f6a 50%,#3a0a5c 100%);color:#ffffff}
 .privacy-band .wrap{display:grid;gap:20px;align-items:center}
 @media (min-width:760px){.privacy-band .wrap{grid-template-columns:1.4fr 1fr}}
 .privacy-band h2{color:inherit}
