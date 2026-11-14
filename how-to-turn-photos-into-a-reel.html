@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>How to turn photos into an Instagram Reel on your phone · Swipefold</title>
+<meta name="description" content="Step by step: eight photos from Thailand and Lisbon turned into a 15-second Reel with a falling-polaroid animation, an opening title and music. Made on the phone, exported as MP4.">
+<meta property="og:title" content="How to turn photos into a Reel on your phone">
+<meta property="og:description" content="Eight photos, one 15-second Reel. Every step, with the real screens.">
+<meta property="og:image" content="https://swipefold.app/img/video/cover.jpg">
+<link rel="canonical" href="https://swipefold.app/how-to-turn-photos-into-a-reel.html">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="style.css?v=3">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"HowTo","name":"How to turn photos into an Instagram Reel","totalTime":"PT3M",
+ "image":"https://swipefold.app/img/video/cover.jpg",
+ "tool":[{"@type":"HowToTool","name":"Swipefold app"}],
+ "step":[
+  {"@type":"HowToStep","position":1,"name":"Add your photos","text":"Open Swipefold, choose Video and tap Add your photos.","image":"https://swipefold.app/img/video/step1.jpg"},
+  {"@type":"HowToStep","position":2,"name":"Pick an animation","text":"Under Animate, choose how the photos move, such as Polaroid drop.","image":"https://swipefold.app/img/video/step2.jpg"},
+  {"@type":"HowToStep","position":3,"name":"Add a title and music","text":"Under Text, turn on an opening and closing title card. Under Music, add a song from your phone.","image":"https://swipefold.app/img/video/step3.jpg"},
+  {"@type":"HowToStep","position":4,"name":"Choose the length and export","text":"Under Length, pick 10, 15 or 30 seconds, then tap Export to save a 9:16 MP4 ready for Reels.","image":"https://swipefold.app/img/video/step4.jpg"}]}
+</script>
+<style>
+/* a scrolling story, chapter by chapter */
+.how-hero{padding:24px 0 8px}
+.how-hero .eyebrow{font-family:var(--f-mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}
+.how-hero h1{font-family:var(--f-display);font-weight:800;font-stretch:112%;font-size:clamp(34px,6.4vw,64px);line-height:1.02;letter-spacing:-.02em;margin:0 0 16px;max-width:14ch}
+.how-hero .lede{font-size:clamp(17px,2.2vw,20px);color:var(--muted);max-width:52ch;margin:0}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:18px;font-family:var(--f-mono);font-size:13px;color:var(--muted)}
+.meta-row b{color:var(--ink);font-weight:400}
+
+/* the finished post: a swipeable Instagram-style carousel */
+.result{padding:28px 0 12px}
+.ig{max-width:420px;margin:0 auto;background:var(--paper);border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(40,10,30,.45)}
+.ig-head{display:flex;align-items:center;gap:10px;padding:12px 14px;font-weight:700;font-size:15px}
+.ig-head i{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#f06aa8,#7a3fd0)}
+.ig-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.ig-track::-webkit-scrollbar{display:none}
+.ig-track picture{flex:0 0 100%;scroll-snap-align:center}
+.ig-track img{display:block;width:100%;height:auto;aspect-ratio:4/5}
+.ig-dots{display:flex;justify-content:center;gap:5px;padding:10px 0 14px}
+.ig-dots b{width:6px;height:6px;border-radius:50%;background:var(--line);transition:background .2s}
+.ig-dots b.on{background:var(--accent)}
+.swipe-note{text-align:center;color:var(--muted);font-size:14px;margin:10px 0 0}
+.strip-view{margin:26px auto 0;max-width:1080px;overflow-x:auto;scrollbar-width:thin}
+.strip-view .row{display:flex;gap:0;min-width:760px;position:relative}
+.strip-view img{display:block;width:calc(100%/6);height:auto;aspect-ratio:4/5}
+.strip-view .row::after{content:"";position:absolute;top:0;bottom:0;left:0;right:calc(100%/6);pointer-events:none;background:linear-gradient(90deg,transparent calc(100% - 2px),var(--cut) 0) 0 0/calc(100%/5) 100% repeat-x}
+.strip-cap{font-family:var(--f-mono);font-size:12px;color:var(--muted);text-align:center;margin:8px 0 0}
+
+/* chapters */
+.chapter{padding:56px 0;border-top:1px solid var(--line)}
+.chapter .wrap{display:grid;grid-template-columns:minmax(0,1fr);gap:28px;align-items:center}
+@media (min-width:860px){.chapter .wrap{grid-template-columns:1.05fr .95fr;gap:56px}.chapter.flip .copy{order:2}}
+.num{font-family:var(--f-display);font-weight:800;font-stretch:120%;font-size:76px;line-height:1;color:var(--accent);opacity:.9;margin:0 0 6px}
+.chapter h2{font-family:var(--f-display);font-weight:800;font-stretch:108%;font-size:clamp(26px,3.6vw,38px);line-height:1.08;margin:0 0 12px;letter-spacing:-.01em}
+.chapter p{margin:0 0 12px;max-width:46ch}
+.chapter .tip{font-size:15px;color:var(--muted);border-left:3px solid var(--accent);padding-left:12px}
+.shot{margin:0;justify-self:center;width:min(300px,78vw);border-radius:34px;padding:9px;background:#0d0a0f;box-shadow:0 30px 60px -28px rgba(40,10,30,.55)}
+.shot img{display:block;width:100%;height:auto;border-radius:26px}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* tips + end */
+.tips{padding:56px 0;border-top:1px solid var(--line)}
+.tips h2{font-family:var(--f-display);font-weight:800;font-size:clamp(24px,3.2vw,34px);margin:0 0 18px}
+.tip-grid{display:grid;gap:14px}
+@media (min-width:760px){.tip-grid{grid-template-columns:repeat(3,1fr)}}
+.tip-card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:18px}
+.tip-card b{display:block;font-size:17px;margin-bottom:6px}
+.tip-card span{color:var(--muted);font-size:15px}
+.end{padding:56px 0 72px;text-align:center;border-top:1px solid var(--line)}
+.end h2{font-family:var(--f-display);font-weight:800;font-stretch:110%;font-size:clamp(28px,4vw,44px);margin:0 0 10px}
+.end p{color:var(--muted);margin:0 auto 20px;max-width:44ch}
+.end .stores{justify-content:center}
+
+/* more guides, at the foot of each guide */
+.more{padding:48px 0;border-top:1px solid var(--line)}
+.more h2{font-family:var(--f-display);font-weight:800;font-size:clamp(22px,3vw,30px);margin:0 0 16px}
+.guide-cards{display:grid;gap:14px}
+@media (min-width:760px){.guide-cards{grid-template-columns:repeat(3,1fr)}}
+.gcard{display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line);border-radius:18px;overflow:hidden;color:inherit;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.gcard:hover{transform:translateY(-3px);box-shadow:0 20px 40px -24px rgba(40,10,30,.45)}
+.gcard img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover}
+.gcard span{display:block;padding:14px 16px 4px;font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.gcard b{display:block;padding:0 16px 16px;font-size:18px;line-height:1.25}
+.gcard[aria-current]{outline:2px solid var(--accent)}
+
+/* Instagram profile grid, 3:4 tiles */
+.profile{max-width:420px;margin:0 auto;background:var(--paper);border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(40,10,30,.45)}
+.p-head{display:flex;align-items:center;gap:16px;padding:16px}
+.p-head i{flex:0 0 64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#f06aa8,#7a3fd0)}
+.p-head b{display:block;font-size:16px}
+.p-head small{display:block;color:var(--muted);font-size:13px;margin-top:2px}
+.p-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--paper)}
+.p-grid img{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;transition:opacity .45s ease,transform .45s ease}
+.p-grid.filling img{opacity:0;transform:scale(.94)}
+.p-grid.filling img.on{opacity:1;transform:none}
+.p-grid.gapped{gap:2px}
+.replay{display:block;margin:14px auto 0;font:inherit;font-size:15px;font-weight:700;padding:10px 18px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer}
+.order{max-width:420px;margin:22px auto 0;display:grid;grid-template-columns:repeat(9,1fr);gap:4px}
+.order figure{margin:0;text-align:center}
+.order img{display:block;width:100%;height:auto;aspect-ratio:3/4;border-radius:4px}
+.order figcaption{font-family:var(--f-mono);font-size:11px;color:var(--muted);margin-top:4px}
+
+/* finished board + its video */
+.duo{display:grid;gap:22px;justify-items:center;max-width:820px;margin:0 auto}
+@media (min-width:760px){.duo{grid-template-columns:1.35fr 1fr;align-items:center}}
+.duo figure{margin:0;width:100%}
+.duo figcaption{font-family:var(--f-mono);font-size:12px;color:var(--muted);text-align:center;margin-top:10px}
+.board-img{display:block;width:100%;height:auto;border-radius:14px;box-shadow:0 30px 60px -30px rgba(40,10,30,.45)}
+.reel{width:min(260px,70vw);margin:0 auto;border-radius:30px;padding:8px;background:#0d0a0f;box-shadow:0 30px 60px -28px rgba(40,10,30,.55)}
+.reel video{display:block;width:100%;height:auto;aspect-ratio:9/16;border-radius:23px;background:#eee}
+.callout{max-width:720px;margin:0 auto;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 18px;font-size:15px;color:var(--muted)}
+.callout b{color:var(--ink)}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="logo" href="./"><img src="apple-touch-icon.png" alt=""><span class="wm">Swipe<span>fold</span></span></a>
+  <nav><a href="./#modes">Features</a><a href="guides.html" aria-current="page">Guides</a><a href="privacy.html">Privacy</a></nav>
+</div></header>
+
+<main>
+<section class="how-hero"><div class="wrap">
+  <p class="eyebrow">Guide · Video</p>
+  <h1>How to turn your photos into a Reel</h1>
+  <p class="lede">Eight photos from Thailand and Lisbon, dropped onto a wooden table like real prints, with a title at the start and the end. Made on the phone in a few minutes. Here's every step, with the real screens.</p>
+  <div class="meta-row"><span>Photos <b>8</b></span><span>Animation <b>Polaroid drop</b></span><span>Size <b>9:16 Reel</b></span><span>Length <b>15 s</b></span></div>
+</div></section>
+
+<section class="result"><div class="wrap">
+  <figure style="margin:0"><div class="reel"><video src="img/video/reel.mp4" poster="img/video/poster.jpg" muted loop playsinline autoplay preload="metadata" aria-label="The finished Reel: a title card reading Thailand and Lisbon 2026, then eight polaroid photos drop one by one onto a wooden table, ending on a card reading Until next time"></video></div><figcaption class="strip-cap">The finished Reel · 1080 × 1920 MP4 · shown here without sound</figcaption></figure>
+</div></section>
+
+<section class="chapter"><div class="wrap">
+  <div class="copy reveal">
+    <p class="num">01</p>
+    <h2>Add your photos</h2>
+    <p>I opened Swipefold, chose <b>Video</b> and tapped <b>Add your photos</b>. I picked eight: the cliffs at Railay, street food in Bangkok, dancing in Lisbon, the floating market, dinner, the longtail boat, a sunset beach and a rooftop at night.</p>
+    <p>It starts playing straight away, so you see the video while you change it.</p>
+    <p class="tip">Mix wide shots with close-ups, and people with places. The video feels livelier when no two photos in a row look alike.</p>
+  </div>
+  <figure class="shot reveal"><picture><source type="image/webp" srcset="img/video/step1.webp"><img src="img/video/step1.jpg" alt="Video mode with sample photos and the Add your photos button" width="585" height="996" loading="lazy"></picture></figure>
+</div></section>
+
+<section class="chapter flip"><div class="wrap">
+  <div class="copy reveal">
+    <p class="num">02</p>
+    <h2>Pick how the photos move</h2>
+    <p>Under <b>Animate</b> there are lots of ways for photos to move: tiles that swap, a grid that builds up, a slow zoom, a 3D carousel, a shuffling deck and more.</p>
+    <p>I chose <b>Polaroid drop</b>. Each photo lands on the table as a print and stays there, so by the end the whole trip is piled up in one place. <b>Look</b> changes what's underneath: wood, linen, travel designs or a season.</p>
+  </div>
+  <figure class="shot reveal"><picture><source type="image/webp" srcset="img/video/step2.webp"><img src="img/video/step2.jpg" alt="The Animate options with Polaroid drop selected" width="585" height="996" loading="lazy"></picture></figure>
+</div></section>
+
+<section class="chapter"><div class="wrap">
+  <div class="copy reveal">
+    <p class="num">03</p>
+    <h2>Add a title and music</h2>
+    <p>Under <b>Text</b> I chose <b>Both</b>, for a title card at the start and the end. I wrote <b>Thailand &amp; Lisbon</b> with <b>2026</b> underneath, and kept "Until next time" for the closing card. The cards use a blurred version of your first and last photos behind the words.</p>
+    <p>Under <b>Music</b>, <b>Add music</b> picks a song saved on your phone, and you can choose where in the song it starts.</p>
+    <p class="tip">Want trending audio? Export without music, then add the sound in Instagram when you post.</p>
+  </div>
+  <figure class="shot reveal"><picture><source type="image/webp" srcset="img/video/step3.webp"><img src="img/video/step3.jpg" alt="The Text tab with opening and closing title cards turned on and title styles to choose from" width="585" height="996" loading="lazy"></picture></figure>
+</div></section>
+
+<section class="chapter flip"><div class="wrap">
+  <div class="copy reveal">
+    <p class="num">04</p>
+    <h2>Choose the length, then export</h2>
+    <p>Under <b>Length</b> you can pick 10, 15 or 30 seconds, or <b>Each photo once</b>, which fits the video to your photos. Mine came to 9 seconds of photos, plus the two title cards: 15 seconds in all.</p>
+    <p>I tapped <b>Export</b>. Swipefold made the MP4 on the phone, 1080 px wide in the 9:16 Reel shape, and saved it to my photos. Then on Instagram: <b>+ → Reel</b>, pick the video, and share.</p>
+  </div>
+  <figure class="shot reveal"><picture><source type="image/webp" srcset="img/video/step4.webp"><img src="img/video/step4.jpg" alt="The Export video screen making the 15-second video" width="585" height="996" loading="lazy"></picture></figure>
+</div></section>
+
+<section class="tips"><div class="wrap">
+  <h2>Three tips for a Reel people watch to the end</h2>
+  <div class="tip-grid">
+    <div class="tip-card reveal"><b>Keep it short</b><span>10 to 15 seconds is plenty for 6 to 10 photos. A shorter Reel is more likely to be watched twice.</span></div>
+    <div class="tip-card reveal"><b>Open strong</b><span>Put your best photo first. It's the one people see as the video starts and in your profile grid.</span></div>
+    <div class="tip-card reveal"><b>Pick a good cover</b><span>When you post, choose a cover frame where the title or a full photo shows, so the Reel looks good on your profile.</span></div>
+  </div>
+  <p class="callout reveal" style="margin-top:22px">Polaroid drop and most animations are free. Videos made without <b>Swipefold Pro</b> carry a small "Made with Swipefold" mark. Pro removes it and adds the Film strip, Photo river, Before / after, Vision board and Book &amp; calendar animations, plus music beat sync.</p>
+</div></section>
+
+<section class="more"><div class="wrap">
+  <h2>More guides</h2>
+  <div class="guide-cards">
+    <a class="gcard" href="how-i-made-a-carousel.html"><img src="img/how/slide1.jpg" alt="" loading="lazy" width="720" height="900"><span>Seamless carousel</span><b>How I made this Lisbon carousel in 3 minutes</b></a>
+    <a class="gcard" href="how-to-split-a-photo-into-an-instagram-grid.html"><img src="img/grid/cover.jpg" alt="" loading="lazy" width="720" height="900"><span>Grid split</span><b>How to split one photo across your Instagram grid</b></a>
+    <a class="gcard" href="how-to-make-a-vision-board.html"><img src="img/board/board.jpg" alt="" loading="lazy" width="1080" height="1350"><span>Collage &amp; boards</span><b>How to make a 2027 vision board on your phone</b></a>
+    <a class="gcard" href="how-to-turn-photos-into-a-reel.html" aria-current="page"><img src="img/video/cover.jpg" alt="" loading="lazy" width="720" height="900"><span>Video</span><b>How to turn your photos into a Reel</b></a>
+    <a class="gcard" href="how-to-make-an-instagram-photo-story.html"><img src="img/story/slide1.jpg" alt="" loading="lazy" width="720" height="900"><span>Photo story</span><b>How to tell a story with photos and words</b></a>
+  </div>
+</div></section>
+
+<section class="end"><div class="wrap">
+  <h2>Make your own Reel</h2>
+  <p>Swipefold is free to try, with no account. Your photos stay on your phone.</p>
+  <div class="stores" aria-label="Availability">
+    <div class="store"><small>Coming soon on</small><b>Google Play</b></div>
+    <div class="store"><small>Coming soon on</small><b>the App Store</b></div>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <span>© 2026 Swipefold. Made in Dublin.</span>
+  <span><a href="https://www.instagram.com/swipefold.app/" rel="me">Instagram</a> · <a href="privacy.html">Privacy policy</a> · <a href="terms.html">Terms</a> · <a href="mailto:hello@swipefold.app">hello@swipefold.app</a></span>
+</div></footer>
+
+<script>
+// chapters fade in on scroll; the video pauses if motion is reduced
+(()=>{ if(matchMedia("(prefers-reduced-motion: reduce)").matches){ const v=document.querySelector(".reel video"); v.removeAttribute("autoplay"); v.pause(); v.controls=true; }
+  const els=document.querySelectorAll(".reveal");
+  if(!("IntersectionObserver" in window)){ els.forEach(e=>e.classList.add("in")); return; }
+  const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } }),{rootMargin:"0px 0px -10% 0px"});
+  els.forEach(e=>io.observe(e)); })();
+</script>
+</body>
+</html>
