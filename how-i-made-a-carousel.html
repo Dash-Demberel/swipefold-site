@@ -24,71 +24,17 @@
   {"@type":"HowToStep","position":3,"name":"Make your best photo the big one","text":"Tap the photo you love most and choose Make it the big one, so it takes the largest frame.","image":"https://swipefold.app/img/how/step3.jpg"},
   {"@type":"HowToStep","position":4,"name":"Preview, export and post","text":"Check the swipe preview, tap Export to save every slide in order, then post them on Instagram as one carousel without changing the crop.","image":"https://swipefold.app/img/how/step4.jpg"}]}
 </script>
-<style>
-/* a scrolling story, chapter by chapter */
-.how-hero{padding:24px 0 8px}
-.how-hero .eyebrow{font-family:var(--f-mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}
-.how-hero h1{font-family:var(--f-display);font-weight:800;font-stretch:112%;font-size:clamp(34px,6.4vw,64px);line-height:1.02;letter-spacing:-.02em;margin:0 0 16px;max-width:14ch}
-.how-hero .lede{font-size:clamp(17px,2.2vw,20px);color:var(--muted);max-width:52ch;margin:0}
-.meta-row{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:18px;font-family:var(--f-mono);font-size:13px;color:var(--muted)}
-.meta-row b{color:var(--ink);font-weight:400}
-
-/* the finished post: a swipeable Instagram-style carousel */
-.result{padding:28px 0 12px}
-.ig{max-width:420px;margin:0 auto;background:var(--paper);border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(40,10,30,.45)}
-.ig-head{display:flex;align-items:center;gap:10px;padding:12px 14px;font-weight:700;font-size:15px}
-.ig-head i{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#f06aa8,#7a3fd0)}
-.ig-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
-.ig-track::-webkit-scrollbar{display:none}
-.ig-track picture{flex:0 0 100%;scroll-snap-align:center}
-.ig-track img{display:block;width:100%;height:auto;aspect-ratio:4/5}
-.ig-dots{display:flex;justify-content:center;gap:5px;padding:10px 0 14px}
-.ig-dots b{width:6px;height:6px;border-radius:50%;background:var(--line);transition:background .2s}
-.ig-dots b.on{background:var(--accent)}
-.swipe-note{text-align:center;color:var(--muted);font-size:14px;margin:10px 0 0}
-.strip-view{margin:26px auto 0;max-width:1080px;overflow-x:auto;scrollbar-width:thin}
-.strip-view .row{display:flex;gap:0;min-width:760px;position:relative}
-.strip-view img{display:block;width:calc(100%/6);height:auto;aspect-ratio:4/5}
-.strip-view .row::after{content:"";position:absolute;top:0;bottom:0;left:0;right:calc(100%/6);pointer-events:none;background:linear-gradient(90deg,transparent calc(100% - 2px),var(--cut) 0) 0 0/calc(100%/5) 100% repeat-x}
-.strip-cap{font-family:var(--f-mono);font-size:12px;color:var(--muted);text-align:center;margin:8px 0 0}
-
-/* chapters */
-.chapter{padding:56px 0;border-top:1px solid var(--line)}
-.chapter .wrap{display:grid;gap:28px;align-items:center}
-@media (min-width:860px){.chapter .wrap{grid-template-columns:1.05fr .95fr;gap:56px}.chapter.flip .copy{order:2}}
-.num{font-family:var(--f-display);font-weight:800;font-stretch:120%;font-size:76px;line-height:1;color:var(--accent);opacity:.9;margin:0 0 6px}
-.chapter h2{font-family:var(--f-display);font-weight:800;font-stretch:108%;font-size:clamp(26px,3.6vw,38px);line-height:1.08;margin:0 0 12px;letter-spacing:-.01em}
-.chapter p{margin:0 0 12px;max-width:46ch}
-.chapter .tip{font-size:15px;color:var(--muted);border-left:3px solid var(--accent);padding-left:12px}
-.shot{justify-self:center;width:min(300px,78vw);border-radius:34px;padding:9px;background:#0d0a0f;box-shadow:0 30px 60px -28px rgba(40,10,30,.55)}
-.shot img{display:block;width:100%;height:auto;border-radius:26px}
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
-.reveal.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
-
-/* tips + end */
-.tips{padding:56px 0;border-top:1px solid var(--line)}
-.tips h2{font-family:var(--f-display);font-weight:800;font-size:clamp(24px,3.2vw,34px);margin:0 0 18px}
-.tip-grid{display:grid;gap:14px}
-@media (min-width:760px){.tip-grid{grid-template-columns:repeat(3,1fr)}}
-.tip-card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:18px}
-.tip-card b{display:block;font-size:17px;margin-bottom:6px}
-.tip-card span{color:var(--muted);font-size:15px}
-.end{padding:56px 0 72px;text-align:center;border-top:1px solid var(--line)}
-.end h2{font-family:var(--f-display);font-weight:800;font-stretch:110%;font-size:clamp(28px,4vw,44px);margin:0 0 10px}
-.end p{color:var(--muted);margin:0 auto 20px;max-width:44ch}
-.end .stores{justify-content:center}
-</style>
+<link rel="stylesheet" href="guide.css">
 </head>
 <body>
 <header class="top"><div class="wrap">
   <a class="logo" href="./"><img src="apple-touch-icon.png" alt=""><span class="wm">Swipe<span>fold</span></span></a>
-  <nav><a href="./#modes">Features</a><a href="how-i-made-a-carousel.html" aria-current="page">Guide</a><a href="privacy.html">Privacy</a></nav>
+  <nav><a href="./#modes">Features</a><a href="guides.html" aria-current="page">Guides</a><a href="privacy.html">Privacy</a></nav>
 </div></header>
 
 <main>
 <section class="how-hero"><div class="wrap">
-  <p class="eyebrow">Behind the post</p>
+  <p class="eyebrow">Guide · Seamless carousel</p>
   <h1>How I made this Lisbon carousel in 3 minutes</h1>
   <p class="lede">Six photos from a weekend in Lisbon, one post that flows from slide to slide as you swipe. Here's every step, with the real screens.</p>
   <div class="meta-row"><span>Photos <b>6</b></span><span>Slides <b>6</b></span><span>Template <b>Big &amp; small</b></span><span>Time <b>about 3 min</b></span></div>
@@ -161,6 +107,15 @@
     <div class="tip-card reveal"><b>Post in order</b><span>Select the slides 1, 2, 3… in the order Swipefold saved them, or the cuts won't line up.</span></div>
     <div class="tip-card reveal"><b>Don't zoom the crop</b><span>Leave Instagram's crop exactly as it is. The slides are already the right size (4:5).</span></div>
     <div class="tip-card reveal"><b>Lead with your best photo</b><span>The first slide is what people see in the feed. Put a strong photo there and make it the big one.</span></div>
+  </div>
+</div></section>
+
+<section class="more"><div class="wrap">
+  <h2>More guides</h2>
+  <div class="guide-cards">
+    <a class="gcard" href="how-i-made-a-carousel.html" aria-current="page"><img src="img/how/slide1.jpg" alt="" loading="lazy" width="720" height="900"><span>Seamless carousel</span><b>How I made this Lisbon carousel in 3 minutes</b></a>
+    <a class="gcard" href="how-to-make-a-vision-board.html"><img src="img/board/board.jpg" alt="" loading="lazy" width="1080" height="1350"><span>Collage &amp; boards</span><b>How to make a 2027 vision board on your phone</b></a>
+    <a class="gcard" href="how-to-split-a-photo-into-an-instagram-grid.html"><img src="img/grid/step3.jpg" alt="" loading="lazy" width="585" height="996"><span>Grid split</span><b>How to split one photo across your Instagram grid</b></a>
   </div>
 </div></section>
 
