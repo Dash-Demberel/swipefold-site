@@ -30,6 +30,7 @@ img,svg{max-width:100%}
 .top nav a{color:var(--muted);text-decoration:none}
 .top nav a:hover{color:var(--ink)}
 @media (max-width:560px){.top nav{gap:14px;font-size:14px}.top nav a[href$="#story"]{display:none}}
+@media (max-width:380px){.top .wrap{gap:10px}.top nav{gap:10px;font-size:13px}.top nav a[href$="#modes"]{display:none}}
 
 /* hero: lifestyle photo, copy sits on the empty wall to the left */
 .hero{padding:0;position:relative}

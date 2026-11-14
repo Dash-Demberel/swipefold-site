@@ -13,7 +13,7 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&family=JetBrains+Mono:wght@400&display=swap">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=3">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"HowTo","name":"How to make a seamless Instagram carousel","totalTime":"PT3M",
  "image":"https://swipefold.app/img/how/slide1.jpg",
@@ -24,7 +24,101 @@
   {"@type":"HowToStep","position":3,"name":"Make your best photo the big one","text":"Tap the photo you love most and choose Make it the big one, so it takes the largest frame.","image":"https://swipefold.app/img/how/step3.jpg"},
   {"@type":"HowToStep","position":4,"name":"Preview, export and post","text":"Check the swipe preview, tap Export to save every slide in order, then post them on Instagram as one carousel without changing the crop.","image":"https://swipefold.app/img/how/step4.jpg"}]}
 </script>
-<link rel="stylesheet" href="guide.css">
+<style>
+/* a scrolling story, chapter by chapter */
+.how-hero{padding:24px 0 8px}
+.how-hero .eyebrow{font-family:var(--f-mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}
+.how-hero h1{font-family:var(--f-display);font-weight:800;font-stretch:112%;font-size:clamp(34px,6.4vw,64px);line-height:1.02;letter-spacing:-.02em;margin:0 0 16px;max-width:14ch}
+.how-hero .lede{font-size:clamp(17px,2.2vw,20px);color:var(--muted);max-width:52ch;margin:0}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:18px;font-family:var(--f-mono);font-size:13px;color:var(--muted)}
+.meta-row b{color:var(--ink);font-weight:400}
+
+/* the finished post: a swipeable Instagram-style carousel */
+.result{padding:28px 0 12px}
+.ig{max-width:420px;margin:0 auto;background:var(--paper);border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(40,10,30,.45)}
+.ig-head{display:flex;align-items:center;gap:10px;padding:12px 14px;font-weight:700;font-size:15px}
+.ig-head i{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#f06aa8,#7a3fd0)}
+.ig-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.ig-track::-webkit-scrollbar{display:none}
+.ig-track picture{flex:0 0 100%;scroll-snap-align:center}
+.ig-track img{display:block;width:100%;height:auto;aspect-ratio:4/5}
+.ig-dots{display:flex;justify-content:center;gap:5px;padding:10px 0 14px}
+.ig-dots b{width:6px;height:6px;border-radius:50%;background:var(--line);transition:background .2s}
+.ig-dots b.on{background:var(--accent)}
+.swipe-note{text-align:center;color:var(--muted);font-size:14px;margin:10px 0 0}
+.strip-view{margin:26px auto 0;max-width:1080px;overflow-x:auto;scrollbar-width:thin}
+.strip-view .row{display:flex;gap:0;min-width:760px;position:relative}
+.strip-view img{display:block;width:calc(100%/6);height:auto;aspect-ratio:4/5}
+.strip-view .row::after{content:"";position:absolute;top:0;bottom:0;left:0;right:calc(100%/6);pointer-events:none;background:linear-gradient(90deg,transparent calc(100% - 2px),var(--cut) 0) 0 0/calc(100%/5) 100% repeat-x}
+.strip-cap{font-family:var(--f-mono);font-size:12px;color:var(--muted);text-align:center;margin:8px 0 0}
+
+/* chapters */
+.chapter{padding:56px 0;border-top:1px solid var(--line)}
+.chapter .wrap{display:grid;grid-template-columns:minmax(0,1fr);gap:28px;align-items:center}
+@media (min-width:860px){.chapter .wrap{grid-template-columns:1.05fr .95fr;gap:56px}.chapter.flip .copy{order:2}}
+.num{font-family:var(--f-display);font-weight:800;font-stretch:120%;font-size:76px;line-height:1;color:var(--accent);opacity:.9;margin:0 0 6px}
+.chapter h2{font-family:var(--f-display);font-weight:800;font-stretch:108%;font-size:clamp(26px,3.6vw,38px);line-height:1.08;margin:0 0 12px;letter-spacing:-.01em}
+.chapter p{margin:0 0 12px;max-width:46ch}
+.chapter .tip{font-size:15px;color:var(--muted);border-left:3px solid var(--accent);padding-left:12px}
+.shot{margin:0;justify-self:center;width:min(300px,78vw);border-radius:34px;padding:9px;background:#0d0a0f;box-shadow:0 30px 60px -28px rgba(40,10,30,.55)}
+.shot img{display:block;width:100%;height:auto;border-radius:26px}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* tips + end */
+.tips{padding:56px 0;border-top:1px solid var(--line)}
+.tips h2{font-family:var(--f-display);font-weight:800;font-size:clamp(24px,3.2vw,34px);margin:0 0 18px}
+.tip-grid{display:grid;gap:14px}
+@media (min-width:760px){.tip-grid{grid-template-columns:repeat(3,1fr)}}
+.tip-card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:18px}
+.tip-card b{display:block;font-size:17px;margin-bottom:6px}
+.tip-card span{color:var(--muted);font-size:15px}
+.end{padding:56px 0 72px;text-align:center;border-top:1px solid var(--line)}
+.end h2{font-family:var(--f-display);font-weight:800;font-stretch:110%;font-size:clamp(28px,4vw,44px);margin:0 0 10px}
+.end p{color:var(--muted);margin:0 auto 20px;max-width:44ch}
+.end .stores{justify-content:center}
+
+/* more guides, at the foot of each guide */
+.more{padding:48px 0;border-top:1px solid var(--line)}
+.more h2{font-family:var(--f-display);font-weight:800;font-size:clamp(22px,3vw,30px);margin:0 0 16px}
+.guide-cards{display:grid;gap:14px}
+@media (min-width:760px){.guide-cards{grid-template-columns:repeat(3,1fr)}}
+.gcard{display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line);border-radius:18px;overflow:hidden;color:inherit;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.gcard:hover{transform:translateY(-3px);box-shadow:0 20px 40px -24px rgba(40,10,30,.45)}
+.gcard img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover}
+.gcard span{display:block;padding:14px 16px 4px;font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.gcard b{display:block;padding:0 16px 16px;font-size:18px;line-height:1.25}
+.gcard[aria-current]{outline:2px solid var(--accent)}
+
+/* Instagram profile grid, 3:4 tiles */
+.profile{max-width:420px;margin:0 auto;background:var(--paper);border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(40,10,30,.45)}
+.p-head{display:flex;align-items:center;gap:16px;padding:16px}
+.p-head i{flex:0 0 64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#f06aa8,#7a3fd0)}
+.p-head b{display:block;font-size:16px}
+.p-head small{display:block;color:var(--muted);font-size:13px;margin-top:2px}
+.p-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--paper)}
+.p-grid img{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;transition:opacity .45s ease,transform .45s ease}
+.p-grid.filling img{opacity:0;transform:scale(.94)}
+.p-grid.filling img.on{opacity:1;transform:none}
+.p-grid.gapped{gap:2px}
+.replay{display:block;margin:14px auto 0;font:inherit;font-size:15px;font-weight:700;padding:10px 18px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer}
+.order{max-width:420px;margin:22px auto 0;display:grid;grid-template-columns:repeat(9,1fr);gap:4px}
+.order figure{margin:0;text-align:center}
+.order img{display:block;width:100%;height:auto;aspect-ratio:3/4;border-radius:4px}
+.order figcaption{font-family:var(--f-mono);font-size:11px;color:var(--muted);margin-top:4px}
+
+/* finished board + its video */
+.duo{display:grid;gap:22px;justify-items:center;max-width:820px;margin:0 auto}
+@media (min-width:760px){.duo{grid-template-columns:1.35fr 1fr;align-items:center}}
+.duo figure{margin:0;width:100%}
+.duo figcaption{font-family:var(--f-mono);font-size:12px;color:var(--muted);text-align:center;margin-top:10px}
+.board-img{display:block;width:100%;height:auto;border-radius:14px;box-shadow:0 30px 60px -30px rgba(40,10,30,.45)}
+.reel{width:min(260px,70vw);margin:0 auto;border-radius:30px;padding:8px;background:#0d0a0f;box-shadow:0 30px 60px -28px rgba(40,10,30,.55)}
+.reel video{display:block;width:100%;height:auto;aspect-ratio:9/16;border-radius:23px;background:#eee}
+.callout{max-width:720px;margin:0 auto;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 18px;font-size:15px;color:var(--muted)}
+.callout b{color:var(--ink)}
+</style>
 </head>
 <body>
 <header class="top"><div class="wrap">
@@ -115,7 +209,7 @@
   <div class="guide-cards">
     <a class="gcard" href="how-i-made-a-carousel.html" aria-current="page"><img src="img/how/slide1.jpg" alt="" loading="lazy" width="720" height="900"><span>Seamless carousel</span><b>How I made this Lisbon carousel in 3 minutes</b></a>
     <a class="gcard" href="how-to-make-a-vision-board.html"><img src="img/board/board.jpg" alt="" loading="lazy" width="1080" height="1350"><span>Collage &amp; boards</span><b>How to make a 2027 vision board on your phone</b></a>
-    <a class="gcard" href="how-to-split-a-photo-into-an-instagram-grid.html"><img src="img/grid/step3.jpg" alt="" loading="lazy" width="585" height="996"><span>Grid split</span><b>How to split one photo across your Instagram grid</b></a>
+    <a class="gcard" href="how-to-split-a-photo-into-an-instagram-grid.html"><img src="img/grid/cover.jpg" alt="" loading="lazy" width="720" height="900"><span>Grid split</span><b>How to split one photo across your Instagram grid</b></a>
   </div>
 </div></section>
 
